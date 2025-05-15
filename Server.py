@@ -39,6 +39,8 @@ def run_server(host='127.0.0.1', port=8080):
     while True:
         client_socket, addr = server_socket.accept()
         print(f"Accepted connection from {addr}")
+        
+        # Membuat thread baru untuk menangani permintaan klien
         client_handler = threading.Thread(target=handle_client, args=(client_socket,))
         client_handler.start()
 
